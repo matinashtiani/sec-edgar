@@ -10,6 +10,10 @@ from secedgar.filings._base import AbstractFiling
 from secedgar.filings.filing_types import FilingType
 from secedgar.utils import sanitize_date
 
+import nest_asyncio
+nest_asyncio.apply()
+__import__('IPython').embed()
+
 
 class Filing(AbstractFiling):
     """Base class for receiving EDGAR filings.
@@ -185,6 +189,8 @@ class Filing(AbstractFiling):
 
     def save(self, directory, dir_pattern=None, file_pattern=None):
         """Save files in specified directory.
+        
+
 
         Each txt url looks something like:
         https://www.sec.gov/Archives/edgar/data/1018724/000101872419000043/0001018724-19-000043.txt
